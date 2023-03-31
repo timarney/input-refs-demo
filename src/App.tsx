@@ -1,12 +1,12 @@
-import { ItemsProvider } from "./ItemsContext";
+import { RefsProvider } from "./RefsContext";
 import "./App.css";
 import { Items } from "./Items";
 
 function App() {
   return (
-    <ItemsProvider>
+    <RefsProvider>
       <Items />
-    </ItemsProvider>
+    </RefsProvider>
   )
 }
 

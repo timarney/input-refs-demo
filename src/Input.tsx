@@ -1,4 +1,4 @@
-import { useItemsContext } from "./ItemsContext";
+import { useRefsContext } from "./RefsContext";
 
 export const Input = ({
   id,
@@ -9,13 +9,13 @@ export const Input = ({
   placeHolder: string;
   handleFocusInput: (id: string) => void;
 }) => {
-  const { refs } = useItemsContext();
+  const { refs } = useRefsContext();
   const getRef = (element: any) => {
     if (!refs || !refs.current || !element) {
       return null;
     }
 
-    return (refs.current[id] = element);
+    return (refs.current[id as unknown as number] = element);
   };
   return (
     <div className="input-wrapper">
