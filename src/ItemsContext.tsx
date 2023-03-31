@@ -1,7 +1,7 @@
-import React, { createContext, useState, useContext, useRef, RefObject } from "react";
+import React, { createContext, useContext, useRef, RefObject } from "react";
 
 interface Item {
-  id: number;
+  id: string;
   label: string;
 }
 
@@ -19,11 +19,12 @@ const ItemsContext = createContext<ItemsContextType>(defaults);
 export function ItemsProvider({ children }: { children: React.ReactNode }) {
   const refs = useRef<HTMLInputElement[]>([]);
   const items = [
-    { id: 1, label: "One" },
-    { id: 2, label: "Two" },
-    { id: 3, label: "Three" },
-    { id: 4, label: "Four" },
-  ]
+    { id: "85XC5Z8F33", label: "One" },
+    { id: "UL4JS2P1RU", label: "Two" },
+    { id: "C42YB8O3KO", label: "Three" },
+    { id: "MUW6LMT0WG", label: "Four" },
+    { id: "R4IVRK6CDC", label: "Five" },
+  ];
 
   return (
     <ItemsContext.Provider value={{ items, refs }}>
