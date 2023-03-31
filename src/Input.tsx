@@ -1,16 +1,22 @@
+import { useItemsContext } from "./ItemsContext"
+
 export const Input = ({
-    refs,
     id,
     placeHolder,
     handleFocusInput,
 }: {
-    refs: any;
     id: number;
     placeHolder: string;
     handleFocusInput: (id: number) => void;
 }) => {
-    const getRef = (element: any) =>
-        element ? (refs.current[id] = element) : null;
+    const { refs } = useItemsContext();
+    const getRef = (element: any) => {
+        if (!refs || !refs.current || !element) {
+            return null;
+        }
+
+        return (refs.current[id] = element);
+    }
     return (
         <div className="input-wrapper">
             <input
